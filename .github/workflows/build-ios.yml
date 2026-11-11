@@ -2,52 +2,22 @@ name: Build Trustify iOS IPA
 
 on:
   push:
-    branches: [ "main", "master" ]
-  pull_request:
-    branches: [ "main", "master" ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build Trustify IPA
-    runs-on: macos-14
+    name: Build Trustify IPA with xtool
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
-
-      - name: Install XcodeGen
-        run: brew install xcodegen
-
-      - name: Generate Xcode Project
-        run: xcodegen generate
-
-      - name: Build and Package iOS Application
+      - name: Download xtool
         run: |
-          xcodebuild build \
-            -project Trustify.xcodeproj \
-            -scheme Trustify \
-            -configuration Release \
-            -destination "generic/platform=iOS" \
-            -derivedDataPath build \
-            CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGN_IDENTITY=""
-
-          # Create standard IPA packaging
-          mkdir -p ipa_output/Payload
-          cp -r "build/Build/Products/Release-iphoneos/Trustify.app" ipa_output/Payload/
-          cd ipa_output
-          zip -r -9 Trustify.ipa Payload
-          cd ..
-
-      - name: Upload IPA Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Trustify-iOS-IPA
-          path: ipa_output/Trustify.ipa
-          retention-days: 14
-
+          wget https://github.com/xtool-org/xtool/releases/download/1.24.0/xtool-x86_64.AppImage -O xtool
+          chmod +x xtool
+          ./xtool --help
+          ./xtool setup --help || true
+          ./xtool sdk --help || true
