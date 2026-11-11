@@ -24,3 +24,4 @@ public struct NotedNumber: Codable, Identifiable {
         self.createdAt = createdAt
     }
 }
+

@@ -31,3 +31,4 @@ public struct CallerProfile: Codable, Identifiable {
         self.positiveConfirmationsCount = positiveConfirmationsCount
     }
 }
+

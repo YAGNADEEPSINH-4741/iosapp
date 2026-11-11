@@ -48,3 +48,4 @@ targets:
         INFOPLIST_FILE: Sources/TrustifyCallDirectory/Info.plist
         TARGETED_DEVICE_FAMILY: "1"
         GENERATE_INFOPLIST_FILE: "NO"
+

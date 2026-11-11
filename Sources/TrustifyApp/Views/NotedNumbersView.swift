@@ -180,3 +180,4 @@ public struct NotedNumbersView: View {
         return formatter.string(from: date)
     }
 }
+

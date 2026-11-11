@@ -278,3 +278,4 @@ public struct InstantLookupView: View {
         searchResult = nil
     }
 }
+

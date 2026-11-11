@@ -57,3 +57,4 @@ extension CallDirectoryHandler: CXCallDirectoryExtensionContextDelegate {
         NSLog("Trustify Call Directory error: \(error.localizedDescription)")
     }
 }
+

@@ -33,3 +33,4 @@ public struct Voicemail: Codable, Identifiable {
         self.isSynced = isSynced
     }
 }
+

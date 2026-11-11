@@ -12,3 +12,4 @@ public enum TrustifyTheme {
     public static let textSecondary = Color(red: 0.58, green: 0.64, blue: 0.72) // #94A3B8
     public static let border = Color(red: 0.20, green: 0.27, blue: 0.38)
 }
+

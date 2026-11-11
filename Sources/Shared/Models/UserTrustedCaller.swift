@@ -19,3 +19,4 @@ public struct UserTrustedCaller: Codable, Identifiable {
         self.addedAt = addedAt
     }
 }
+

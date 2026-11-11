@@ -50,3 +50,4 @@ jobs:
           name: Trustify-iOS-IPA
           path: ipa_output/Trustify.ipa
           retention-days: 14
+

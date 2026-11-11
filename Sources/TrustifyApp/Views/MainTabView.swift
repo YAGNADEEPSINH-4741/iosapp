@@ -53,3 +53,4 @@ public struct MainTabView: View {
         .accentColor(TrustifyTheme.emerald)
     }
 }
+

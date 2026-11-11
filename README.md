@@ -15,3 +15,4 @@ Cross-platform iOS counterpart to Trustify Android. Engineered with native CallK
 - `Sources/TrustifyCallDirectory/`: `CXCallDirectoryProvider` extension.
 - `.github/workflows/build-ios.yml`: Cloud CI/CD to build `.ipa` on macOS runners.
 - `project.yml`: XcodeGen project configuration.
+
