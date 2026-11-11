@@ -1,0 +1,50 @@
+name: Trustify
+options:
+  bundleIdPrefix: com.safecallai
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "15.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGNING_REQUIRED: "NO"
+    CODE_SIGNING_ALLOWED: "NO"
+
+targets:
+  Trustify:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources/TrustifyApp
+      - path: Sources/Shared
+    info:
+      path: Sources/TrustifyApp/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.safecallai.trustify
+        PRODUCT_NAME: Trustify
+        INFOPLIST_FILE: Sources/TrustifyApp/Info.plist
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: "NO"
+    dependencies:
+      - target: TrustifyCallDirectory
+        embed: true
+
+  TrustifyCallDirectory:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Sources/TrustifyCallDirectory
+      - path: Sources/Shared
+    info:
+      path: Sources/TrustifyCallDirectory/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.safecallai.trustify.calldirectory
+        PRODUCT_NAME: TrustifyCallDirectory
+        INFOPLIST_FILE: Sources/TrustifyCallDirectory/Info.plist
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: "NO"
