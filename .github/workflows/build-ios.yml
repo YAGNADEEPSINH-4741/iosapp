@@ -14,10 +14,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Download xtool
+      - name: Inspect xtool
         run: |
           wget https://github.com/xtool-org/xtool/releases/download/1.24.0/xtool-x86_64.AppImage -O xtool
           chmod +x xtool
-          ./xtool --help
-          ./xtool setup --help || true
-          ./xtool sdk --help || true
+          ./xtool sdk install --help || true
+          ./xtool dev --help || true
